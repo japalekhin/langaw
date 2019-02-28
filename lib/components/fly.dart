@@ -12,7 +12,9 @@ class Fly {
     flyPaint.color = Color(0xff6ab04c);
   }
 
-  void render(Canvas c) {}
+  void render(Canvas c) {
+    c.drawRect(flyRect, flyPaint);
+  }
 
   void update(double t) {}
 }
