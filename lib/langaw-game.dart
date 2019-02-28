@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
 
 class LangawGame extends Game {
@@ -9,7 +10,9 @@ class LangawGame extends Game {
     initialize();
   }
 
-  void initialize() async {}
+  void initialize() async {
+    resize(await Flame.util.initialDimensions());
+  }
 
   void render(Canvas canvas) {
     Rect bgRect = Rect.fromLTWH(0, 0, screenSize.width, screenSize.height);
