@@ -3,6 +3,7 @@ import 'package:flame/game.dart';
 
 class LangawGame extends Game {
   Size screenSize;
+  double tileSize;
 
   void render(Canvas canvas) {
     Rect bgRect = Rect.fromLTWH(0, 0, screenSize.width, screenSize.height);
@@ -15,5 +16,6 @@ class LangawGame extends Game {
 
   void resize(Size size) {
     screenSize = size;
+    tileSize = screenSize.width / 9;
   }
 }
