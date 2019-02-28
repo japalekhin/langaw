@@ -8,5 +8,7 @@ class LangawGame extends Game {
 
   void update(double t) {}
 
-  void resize(Size size) {}
+  void resize(Size size) {
+    screenSize = size;
+  }
 }
