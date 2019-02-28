@@ -5,6 +5,12 @@ class LangawGame extends Game {
   Size screenSize;
   double tileSize;
 
+  LangawGame() {
+    initialize();
+  }
+
+  void initialize() async {}
+
   void render(Canvas canvas) {
     Rect bgRect = Rect.fromLTWH(0, 0, screenSize.width, screenSize.height);
     Paint bgPaint = Paint();
