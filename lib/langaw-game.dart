@@ -4,7 +4,12 @@ import 'package:flame/game.dart';
 class LangawGame extends Game {
   Size screenSize;
 
-  void render(Canvas canvas) {}
+  void render(Canvas canvas) {
+    Rect bgRect = Rect.fromLTWH(0, 0, screenSize.width, screenSize.height);
+    Paint bgPaint = Paint();
+    bgPaint.color = Color(0xff576574);
+    canvas.drawRect(bgRect, bgPaint);
+  }
 
   void update(double t) {}
 
