@@ -17,4 +17,6 @@ class Fly {
   }
 
   void update(double t) {}
+
+  void onTapDown() {}
 }
