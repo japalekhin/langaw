@@ -2,6 +2,7 @@ import 'dart:math';
 import 'dart:ui';
 import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
+import 'package:flutter/gestures.dart';
 import 'package:langaw/components/fly.dart';
 
 class LangawGame extends Game {
@@ -45,4 +46,6 @@ class LangawGame extends Game {
     screenSize = size;
     tileSize = screenSize.width / 9;
   }
+
+  void onTapDown(TapDownDetails d) {}
 }
