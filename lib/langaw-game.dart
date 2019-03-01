@@ -20,7 +20,7 @@ class LangawGame extends Game {
   }
 
   void spawnFly() {
-    flies.add(Fly(this, 0, 0));
+    flies.add(Fly(this, 50, 50));
   }
 
   void render(Canvas canvas) {
