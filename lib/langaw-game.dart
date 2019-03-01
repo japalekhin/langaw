@@ -47,5 +47,11 @@ class LangawGame extends Game {
     tileSize = screenSize.width / 9;
   }
 
-  void onTapDown(TapDownDetails d) {}
+  void onTapDown(TapDownDetails d) {
+    flies.forEach((Fly fly) {
+      if (fly.flyRect.contains(d.globalPosition)) {
+        fly.onTapDown();
+      }
+    });
+  }
 }
