@@ -16,6 +16,7 @@ class LangawGame extends Game {
 
   void initialize() async {
     flies = List<Fly>();
+    rnd = Random();
     resize(await Flame.util.initialDimensions());
 
     spawnFly();
