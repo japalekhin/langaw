@@ -17,6 +17,10 @@ class LangawGame extends Game {
     resize(await Flame.util.initialDimensions());
   }
 
+  void spawnFly() {
+    flies.add(Fly(this, 0, 0));
+  }
+
   void render(Canvas canvas) {
     Rect bgRect = Rect.fromLTWH(0, 0, screenSize.width, screenSize.height);
     Paint bgPaint = Paint();
