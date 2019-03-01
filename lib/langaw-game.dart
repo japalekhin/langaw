@@ -1,16 +1,19 @@
 import 'dart:ui';
 import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
+import 'package:langaw/components/fly.dart';
 
 class LangawGame extends Game {
   Size screenSize;
   double tileSize;
+  List<Fly> flies;
 
   LangawGame() {
     initialize();
   }
 
   void initialize() async {
+    flies = List<Fly>();
     resize(await Flame.util.initialDimensions());
   }
 
