@@ -23,7 +23,9 @@ class LangawGame extends Game {
   }
 
   void spawnFly() {
-    flies.add(Fly(this, 50, 50));
+    double x = rnd.nextDouble() * (screenSize.width - tileSize);
+    double y = rnd.nextDouble() * (screenSize.height - tileSize);
+    flies.add(Fly(this, x, y));
   }
 
   void render(Canvas canvas) {
