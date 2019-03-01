@@ -22,9 +22,13 @@ class LangawGame extends Game {
     Paint bgPaint = Paint();
     bgPaint.color = Color(0xff576574);
     canvas.drawRect(bgRect, bgPaint);
+
+    flies.forEach((Fly fly) => fly.render(canvas));
   }
 
-  void update(double t) {}
+  void update(double t) {
+    flies.forEach((Fly fly) => fly.update(t));
+  }
 
   void resize(Size size) {
     screenSize = size;
