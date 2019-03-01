@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'dart:ui';
 import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
@@ -7,6 +8,7 @@ class LangawGame extends Game {
   Size screenSize;
   double tileSize;
   List<Fly> flies;
+  Random rnd;
 
   LangawGame() {
     initialize();
