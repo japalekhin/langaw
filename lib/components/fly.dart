@@ -18,5 +18,7 @@ class Fly {
 
   void update(double t) {}
 
-  void onTapDown() {}
+  void onTapDown() {
+    flyPaint.color = Color(0xffff4757);
+  }
 }
