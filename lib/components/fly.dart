@@ -26,5 +26,6 @@ class Fly {
   void onTapDown() {
     isDead = true;
     flyPaint.color = Color(0xffff4757);
+    game.spawnFly();
   }
 }
