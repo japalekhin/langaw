@@ -17,7 +17,11 @@ class Fly {
     c.drawRect(flyRect, flyPaint);
   }
 
-  void update(double t) {}
+  void update(double t) {
+    if (isDead) {
+      flyRect = flyRect.translate(0, game.tileSize * 12 * t);
+    }
+  }
 
   void onTapDown() {
     isDead = true;
