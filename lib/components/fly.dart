@@ -5,6 +5,7 @@ class Fly {
   final LangawGame game;
   Rect flyRect;
   Paint flyPaint;
+  bool isDead = false;
 
   Fly(this.game, double x, double y) {
     flyRect = Rect.fromLTWH(x, y, game.tileSize, game.tileSize);
@@ -19,6 +20,7 @@ class Fly {
   void update(double t) {}
 
   void onTapDown() {
+    isDead = true;
     flyPaint.color = Color(0xffff4757);
   }
 }
