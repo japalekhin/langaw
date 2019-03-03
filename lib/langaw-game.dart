@@ -40,6 +40,7 @@ class LangawGame extends Game {
 
   void update(double t) {
     flies.forEach((Fly fly) => fly.update(t));
+    flies.removeWhere((Fly fly) => fly.isOffScreen);
   }
 
   void resize(Size size) {
