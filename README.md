@@ -1,16 +1,19 @@
-# langaw
+# Langaw
 
-A new Flutter project.
+Langaw is an endless game tap game featured in the game development tutorial in [jap.alekhin.io](https://jap.alekhin.io).
+
+![](https://jap.alekhin.io/wp-content/uploads/2019/03/2d-casual-mobile-game-tutorial.jpg)
+
+The tutorial is split into multiple parts focusing on certain stages of game development.
+
+Using Flutter as the base framework and the [Flame](https://github.com/luanpotter/flame) plugin for it that is simple yet powerful enough to let you create all sorts of games.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Just head on over to [the tutorial](https://jap.alekhin.io/2d-casual-mobile-game-tutorial-flame-flutter-part-1) and follow along!
 
-A few resources to get you started if this is your first Flutter project:
+## Resources
 
-- [Lab: Write your first Flutter app](https://flutter.io/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.io/docs/cookbook)
-
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+- [Write your first Flutter app](https://flutter.io/docs/get-started/)
+- [Flame game development plugin](https://github.com/luanpotter/flame)
+- [Flutter online documentation](https://flutter.io/docs)
