@@ -3,9 +3,13 @@ import 'dart:ui';
 import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/gestures.dart';
+import 'package:langaw/components/agile-fly.dart';
 import 'package:langaw/components/backyard.dart';
+import 'package:langaw/components/drooler-fly.dart';
 import 'package:langaw/components/fly.dart';
 import 'package:langaw/components/house-fly.dart';
+import 'package:langaw/components/hungry-fly.dart';
+import 'package:langaw/components/macho-fly.dart';
 
 class LangawGame extends Game {
   Size screenSize;
@@ -30,7 +34,24 @@ class LangawGame extends Game {
   void spawnFly() {
     double x = rnd.nextDouble() * (screenSize.width - tileSize);
     double y = rnd.nextDouble() * (screenSize.height - tileSize);
-    flies.add(HouseFly(this, x, y));
+
+    switch (rnd.nextInt(5)) {
+      case 0:
+        flies.add(HouseFly(this, x, y));
+        break;
+      case 1:
+        flies.add(DroolerFly(this, x, y));
+        break;
+      case 2:
+        flies.add(AgileFly(this, x, y));
+        break;
+      case 3:
+        flies.add(MachoFly(this, x, y));
+        break;
+      case 4:
+        flies.add(HungryFly(this, x, y));
+        break;
+    }
   }
 
   void render(Canvas canvas) {
