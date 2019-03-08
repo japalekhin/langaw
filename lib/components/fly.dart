@@ -1,8 +1,12 @@
 import 'dart:ui';
+import 'package:flame/sprite.dart';
 import 'package:langaw/langaw-game.dart';
 
 class Fly {
   final LangawGame game;
+  List<Sprite> flyingSprite;
+  Sprite deadSprite;
+  double flyingSpriteIndex = 0;
   Rect flyRect;
   bool isDead = false;
   bool isOffScreen = false;
