@@ -1,6 +1,6 @@
 # Langaw
 
-Langaw is an endless game tap game featured in the game development tutorial in [jap.alekhin.io](https://jap.alekhin.io).
+Langaw is an endless tap game featured in the game development tutorial in [jap.alekhin.io](https://jap.alekhin.io).
 
 ![](https://jap.alekhin.io/wp-content/uploads/2019/03/2d-casual-mobile-game-tutorial.jpg)
 
