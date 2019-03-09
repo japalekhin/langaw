@@ -10,10 +10,19 @@ class Fly {
   Rect flyRect;
   bool isDead = false;
   bool isOffScreen = false;
+  Offset targetLocation;
 
   double get speed => game.tileSize * 3;
 
-  Fly(this.game);
+  Fly(this.game) {
+    setTargetLocation();
+  }
+
+void setTargetLocation() {
+  double x = game.rnd.nextDouble() * (game.screenSize.width - game.tileSize);
+  double y = game.rnd.nextDouble() * (game.screenSize.height - game.tileSize);
+  targetLocation = Offset(x, y);
+}
 
   void render(Canvas c) {
     if (isDead) {
