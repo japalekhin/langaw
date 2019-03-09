@@ -19,8 +19,8 @@ class Fly {
   }
 
   void setTargetLocation() {
-    double x = game.rnd.nextDouble() * (game.screenSize.width - game.tileSize);
-    double y = game.rnd.nextDouble() * (game.screenSize.height - game.tileSize);
+    double x = game.rnd.nextDouble() * (game.screenSize.width - (game.tileSize * 2.025));
+    double y = game.rnd.nextDouble() * (game.screenSize.height - (game.tileSize * 2.025));
     targetLocation = Offset(x, y);
   }
 
