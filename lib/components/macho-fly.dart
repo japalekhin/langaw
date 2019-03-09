@@ -4,6 +4,8 @@ import 'package:langaw/components/fly.dart';
 import 'package:langaw/langaw-game.dart';
 
 class MachoFly extends Fly {
+  double get speed => game.tileSize * 2.5;
+
   MachoFly(LangawGame game, double x, double y) : super(game) {
     flyRect = Rect.fromLTWH(x, y, game.tileSize * 2.025, game.tileSize * 2.025);
     flyingSprite = List<Sprite>();
