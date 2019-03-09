@@ -5,7 +5,7 @@ import 'package:langaw/langaw-game.dart';
 
 class HungryFly extends Fly {
   HungryFly(LangawGame game, double x, double y) : super(game) {
-    flyRect = Rect.fromLTWH(x, y, game.tileSize, game.tileSize);
+    flyRect = Rect.fromLTWH(x, y, game.tileSize * 1.65, game.tileSize * 1.65);
     flyingSprite = List<Sprite>();
     flyingSprite.add(Sprite('flies/hungry-fly-1.png'));
     flyingSprite.add(Sprite('flies/hungry-fly-2.png'));
