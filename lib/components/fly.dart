@@ -18,11 +18,11 @@ class Fly {
     setTargetLocation();
   }
 
-void setTargetLocation() {
-  double x = game.rnd.nextDouble() * (game.screenSize.width - game.tileSize);
-  double y = game.rnd.nextDouble() * (game.screenSize.height - game.tileSize);
-  targetLocation = Offset(x, y);
-}
+  void setTargetLocation() {
+    double x = game.rnd.nextDouble() * (game.screenSize.width - game.tileSize);
+    double y = game.rnd.nextDouble() * (game.screenSize.height - game.tileSize);
+    targetLocation = Offset(x, y);
+  }
 
   void render(Canvas c) {
     if (isDead) {
