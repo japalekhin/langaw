@@ -10,11 +10,10 @@ class Fly {
   Rect flyRect;
   bool isDead = false;
   bool isOffScreen = false;
-  double speed;
 
-  Fly(this.game) {
-    speed = game.tileSize * 3;
-  }
+  double get speed => game.tileSize * 3;
+
+  Fly(this.game);
 
   void render(Canvas c) {
     if (isDead) {
