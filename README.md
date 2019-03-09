@@ -1,6 +1,6 @@
 # Langaw
 
-![](https://jap.alekhin.io/wp-content/uploads/2019/03/graphics-animation.jpg)
+![](https://jap.alekhin.io/wp-content/uploads/2019/03/background-anchor.png)
 
 Langaw is an endless tap game featured in the game development tutorial by Japa Alekhin Llemos in [jap.alekhin.io](https://jap.alekhin.io).
 
