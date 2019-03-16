@@ -10,6 +10,7 @@ import 'package:langaw/components/fly.dart';
 import 'package:langaw/components/house-fly.dart';
 import 'package:langaw/components/hungry-fly.dart';
 import 'package:langaw/components/macho-fly.dart';
+import 'package:langaw/view.dart';
 
 class LangawGame extends Game {
   Size screenSize;
@@ -17,6 +18,8 @@ class LangawGame extends Game {
   Backyard background;
   List<Fly> flies;
   Random rnd;
+
+  View activeView = View.home;
 
   LangawGame() {
     initialize();
