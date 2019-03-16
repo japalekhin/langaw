@@ -20,6 +20,8 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/bg/backyard.png
+    - assets/images/bg/lose-splash.png
+    - assets/images/branding/title.png
     - assets/images/flies/agile-fly-1.png
     - assets/images/flies/agile-fly-2.png
     - assets/images/flies/agile-fly-dead.png
@@ -35,3 +37,5 @@ flutter:
     - assets/images/flies/macho-fly-1.png
     - assets/images/flies/macho-fly-2.png
     - assets/images/flies/macho-fly-dead.png
+    - assets/images/ui/dialog.png
+    - assets/images/ui/start-button.png
