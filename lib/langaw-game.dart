@@ -13,6 +13,7 @@ import 'package:langaw/components/macho-fly.dart';
 import 'package:langaw/components/start-button.dart';
 import 'package:langaw/view.dart';
 import 'package:langaw/views/home-view.dart';
+import 'package:langaw/views/lost-view.dart';
 
 class LangawGame extends Game {
   Size screenSize;
@@ -24,6 +25,7 @@ class LangawGame extends Game {
 
   View activeView = View.home;
   HomeView homeView;
+  LostView lostView;
 
   LangawGame() {
     initialize();
@@ -37,6 +39,7 @@ class LangawGame extends Game {
     background = Backyard(this);
     startButton = StartButton(this);
     homeView = HomeView(this);
+    lostView = LostView(this);
     spawnFly();
   }
 
@@ -69,6 +72,7 @@ class LangawGame extends Game {
     flies.forEach((Fly fly) => fly.render(canvas));
 
     if (activeView == View.home) homeView.render(canvas);
+    if (activeView == View.lost) lostView.render(canvas);
     if (activeView == View.home || activeView == View.lost) {
       startButton.render(canvas);
     }
