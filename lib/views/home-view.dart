@@ -17,7 +17,9 @@ class HomeView {
     titleSprite = Sprite('branding/title.png');
   }
 
-  void render(Canvas c) {}
+  void render(Canvas c) {
+    titleSprite.renderRect(c, titleRect);
+  }
 
   void update(double t) {}
 }
