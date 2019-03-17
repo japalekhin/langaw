@@ -10,6 +10,7 @@ import 'package:langaw/components/fly.dart';
 import 'package:langaw/components/house-fly.dart';
 import 'package:langaw/components/hungry-fly.dart';
 import 'package:langaw/components/macho-fly.dart';
+import 'package:langaw/components/start-button.dart';
 import 'package:langaw/view.dart';
 import 'package:langaw/views/home-view.dart';
 
@@ -18,6 +19,7 @@ class LangawGame extends Game {
   double tileSize;
   Backyard background;
   List<Fly> flies;
+  StartButton startButton;
   Random rnd;
 
   View activeView = View.home;
@@ -33,6 +35,7 @@ class LangawGame extends Game {
     resize(await Flame.util.initialDimensions());
 
     background = Backyard(this);
+    startButton = StartButton(this);
     homeView = HomeView(this);
     spawnFly();
   }
@@ -66,6 +69,7 @@ class LangawGame extends Game {
     flies.forEach((Fly fly) => fly.render(canvas));
 
     if (activeView == View.home) homeView.render(canvas);
+    if (activeView == View.home) startButton.render(canvas);
   }
 
   void update(double t) {
