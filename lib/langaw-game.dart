@@ -87,6 +87,7 @@ class LangawGame extends Game {
   void onTapDown(TapDownDetails d) {
     bool isHandled = false;
 
+    // start button
     if (!isHandled && startButton.rect.contains(d.globalPosition)) {
       if (activeView == View.home || activeView == View.lost) {
         startButton.onTapDown();
@@ -94,13 +95,19 @@ class LangawGame extends Game {
       }
     }
 
+    // flies
     if (!isHandled) {
+      bool didHitAFly = false;
       flies.forEach((Fly fly) {
         if (fly.flyRect.contains(d.globalPosition)) {
           fly.onTapDown();
           isHandled = true;
+          didHitAFly = true;
         }
       });
+      if (activeView == View.playing && !didHitAFly) {
+        activeView = View.lost;
+      }
     }
   }
 }
