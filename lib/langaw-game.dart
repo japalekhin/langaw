@@ -85,6 +85,15 @@ class LangawGame extends Game {
   }
 
   void onTapDown(TapDownDetails d) {
+    bool isHandled = false;
+
+    if (!isHandled && startButton.rect.contains(d.globalPosition)) {
+      if (activeView == View.home || activeView == View.lost) {
+        startButton.onTapDown();
+        isHandled = true;
+      }
+    }
+
     flies.forEach((Fly fly) {
       if (fly.flyRect.contains(d.globalPosition)) {
         fly.onTapDown();
