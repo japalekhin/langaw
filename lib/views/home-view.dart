@@ -7,7 +7,15 @@ class HomeView {
   Rect titleRect;
   Sprite titleSprite;
 
-  HomeView(this.game) {}
+  HomeView(this.game) {
+    titleRect = Rect.fromLTWH(
+      game.tileSize,
+      (game.screenSize.height / 2) - (game.tileSize * 4),
+      game.tileSize * 7,
+      game.tileSize * 4,
+    );
+    titleSprite = Sprite('branding/title.png');
+  }
 
   void render(Canvas c) {}
 
