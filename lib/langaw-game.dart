@@ -11,6 +11,7 @@ import 'package:langaw/components/house-fly.dart';
 import 'package:langaw/components/hungry-fly.dart';
 import 'package:langaw/components/macho-fly.dart';
 import 'package:langaw/view.dart';
+import 'package:langaw/views/home-view.dart';
 
 class LangawGame extends Game {
   Size screenSize;
@@ -20,6 +21,7 @@ class LangawGame extends Game {
   Random rnd;
 
   View activeView = View.home;
+  HomeView homeView;
 
   LangawGame() {
     initialize();
@@ -31,6 +33,7 @@ class LangawGame extends Game {
     resize(await Flame.util.initialDimensions());
 
     background = Backyard(this);
+    homeView = HomeView(this);
     spawnFly();
   }
 
@@ -61,6 +64,8 @@ class LangawGame extends Game {
     background.render(canvas);
 
     flies.forEach((Fly fly) => fly.render(canvas));
+
+    if (activeView == View.home) homeView.render(canvas);
   }
 
   void update(double t) {
