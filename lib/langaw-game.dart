@@ -69,7 +69,9 @@ class LangawGame extends Game {
     flies.forEach((Fly fly) => fly.render(canvas));
 
     if (activeView == View.home) homeView.render(canvas);
-    if (activeView == View.home) startButton.render(canvas);
+    if (activeView == View.home || activeView == View.lost) {
+      startButton.render(canvas);
+    }
   }
 
   void update(double t) {
