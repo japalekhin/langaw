@@ -25,5 +25,20 @@ class FlySpawner {
     game.flies.forEach((Fly fly) => fly.isDead = true);
   }
 
-  void update(double t) {}
+  void update(double t) {
+    int nowTimestamp = DateTime.now().millisecondsSinceEpoch;
+
+    int livingFlies = 0;
+    game.flies.forEach((Fly fly) {
+      if (!fly.isDead) livingFlies += 1;
+    });
+
+    if (nowTimestamp >= nextSpawn && livingFlies < maxFliesOnScreen) {
+      game.spawnFly();
+      if (currentInterval > minSpawnInterval) {
+        currentInterval -= intervalChange;
+      }
+      nextSpawn = nowTimestamp + currentInterval;
+    }
+  }
 }
