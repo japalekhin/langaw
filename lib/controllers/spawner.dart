@@ -10,7 +10,10 @@ class FlySpawner {
   int currentInterval;
   int nextSpawn;
 
-  FlySpawner(this.game) {}
+  FlySpawner(this.game) {
+    start();
+    game.spawnFly();
+  }
 
   void start() {
     killAll();
