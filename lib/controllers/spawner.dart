@@ -4,8 +4,8 @@ import 'package:langaw/langaw-game.dart';
 class FlySpawner {
   final LangawGame game;
   final int maxSpawnInterval = 3000;
-  final int minSpawnInterval = 200;
-  final int intervalChange = 200;
+  final int minSpawnInterval = 250;
+  final int intervalChange = 3;
   final int maxFliesOnScreen = 7;
   int currentInterval;
   int nextSpawn;
@@ -37,6 +37,7 @@ class FlySpawner {
       game.spawnFly();
       if (currentInterval > minSpawnInterval) {
         currentInterval -= intervalChange;
+        currentInterval -= (currentInterval * .02).toInt();
       }
       nextSpawn = nowTimestamp + currentInterval;
     }
