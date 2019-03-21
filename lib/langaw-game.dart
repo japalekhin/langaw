@@ -40,7 +40,6 @@ class LangawGame extends Game {
     startButton = StartButton(this);
     homeView = HomeView(this);
     lostView = LostView(this);
-    spawnFly();
   }
 
   void spawnFly() {
