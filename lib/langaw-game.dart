@@ -11,6 +11,7 @@ import 'package:langaw/components/house-fly.dart';
 import 'package:langaw/components/hungry-fly.dart';
 import 'package:langaw/components/macho-fly.dart';
 import 'package:langaw/components/start-button.dart';
+import 'package:langaw/controllers/spawner.dart';
 import 'package:langaw/view.dart';
 import 'package:langaw/views/home-view.dart';
 import 'package:langaw/views/lost-view.dart';
@@ -18,10 +19,13 @@ import 'package:langaw/views/lost-view.dart';
 class LangawGame extends Game {
   Size screenSize;
   double tileSize;
+  Random rnd;
+
   Backyard background;
   List<Fly> flies;
   StartButton startButton;
-  Random rnd;
+
+  FlySpawner spawner;
 
   View activeView = View.home;
   HomeView homeView;
@@ -32,12 +36,13 @@ class LangawGame extends Game {
   }
 
   void initialize() async {
-    flies = List<Fly>();
     rnd = Random();
+    flies = List<Fly>();
     resize(await Flame.util.initialDimensions());
 
     background = Backyard(this);
     startButton = StartButton(this);
+    spawner = FlySpawner(this);
     homeView = HomeView(this);
     lostView = LostView(this);
   }
@@ -78,6 +83,7 @@ class LangawGame extends Game {
   }
 
   void update(double t) {
+    spawner.update(t);
     flies.forEach((Fly fly) => fly.update(t));
     flies.removeWhere((Fly fly) => fly.isOffScreen);
   }
