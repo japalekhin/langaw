@@ -112,6 +112,8 @@ class LangawGame extends Game {
 
   void onTapDown(TapDownDetails d) {
     bool isHandled = false;
+
+    // dialog boxes
     if (!isHandled) {
       if (activeView == View.help || activeView == View.credits) {
         activeView = View.home;
