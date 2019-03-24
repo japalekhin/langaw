@@ -5,8 +5,10 @@ import 'package:flame/game.dart';
 import 'package:flutter/gestures.dart';
 import 'package:langaw/components/agile-fly.dart';
 import 'package:langaw/components/backyard.dart';
+import 'package:langaw/components/credits-button.dart';
 import 'package:langaw/components/drooler-fly.dart';
 import 'package:langaw/components/fly.dart';
+import 'package:langaw/components/help-button.dart';
 import 'package:langaw/components/house-fly.dart';
 import 'package:langaw/components/hungry-fly.dart';
 import 'package:langaw/components/macho-fly.dart';
@@ -24,6 +26,8 @@ class LangawGame extends Game {
   Backyard background;
   List<Fly> flies;
   StartButton startButton;
+  HelpButton helpButton;
+  CreditsButton creditsButton;
 
   FlySpawner spawner;
 
@@ -42,6 +46,9 @@ class LangawGame extends Game {
 
     background = Backyard(this);
     startButton = StartButton(this);
+    helpButton = HelpButton(this);
+    creditsButton = CreditsButton(this);
+
     spawner = FlySpawner(this);
     homeView = HomeView(this);
     lostView = LostView(this);
@@ -79,6 +86,8 @@ class LangawGame extends Game {
     if (activeView == View.lost) lostView.render(canvas);
     if (activeView == View.home || activeView == View.lost) {
       startButton.render(canvas);
+      helpButton.render(canvas);
+      creditsButton.render(canvas);
     }
   }
 
@@ -95,6 +104,22 @@ class LangawGame extends Game {
 
   void onTapDown(TapDownDetails d) {
     bool isHandled = false;
+
+    // help button
+    if (!isHandled && helpButton.rect.contains(d.globalPosition)) {
+      if (activeView == View.home || activeView == View.lost) {
+        helpButton.onTapDown();
+        isHandled = true;
+      }
+    }
+
+    // credits button
+    if (!isHandled && creditsButton.rect.contains(d.globalPosition)) {
+      if (activeView == View.home || activeView == View.lost) {
+        creditsButton.onTapDown();
+        isHandled = true;
+      }
+    }
 
     // start button
     if (!isHandled && startButton.rect.contains(d.globalPosition)) {
