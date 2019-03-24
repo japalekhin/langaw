@@ -15,6 +15,8 @@ import 'package:langaw/components/macho-fly.dart';
 import 'package:langaw/components/start-button.dart';
 import 'package:langaw/controllers/spawner.dart';
 import 'package:langaw/view.dart';
+import 'package:langaw/views/credits-view.dart';
+import 'package:langaw/views/help-view.dart';
 import 'package:langaw/views/home-view.dart';
 import 'package:langaw/views/lost-view.dart';
 
@@ -34,6 +36,8 @@ class LangawGame extends Game {
   View activeView = View.home;
   HomeView homeView;
   LostView lostView;
+  HelpView helpView;
+  CreditsView creditsView;
 
   LangawGame() {
     initialize();
@@ -52,6 +56,8 @@ class LangawGame extends Game {
     spawner = FlySpawner(this);
     homeView = HomeView(this);
     lostView = LostView(this);
+    helpView = HelpView(this);
+    creditsView = CreditsView(this);
   }
 
   void spawnFly() {
@@ -89,6 +95,8 @@ class LangawGame extends Game {
       helpButton.render(canvas);
       creditsButton.render(canvas);
     }
+    if (activeView == View.help) helpView.render(canvas);
+    if (activeView == View.credits) creditsView.render(canvas);
   }
 
   void update(double t) {
@@ -104,6 +112,12 @@ class LangawGame extends Game {
 
   void onTapDown(TapDownDetails d) {
     bool isHandled = false;
+    if (!isHandled) {
+      if (activeView == View.help || activeView == View.credits) {
+        activeView = View.home;
+        isHandled = true;
+      }
+    }
 
     // help button
     if (!isHandled && helpButton.rect.contains(d.globalPosition)) {
