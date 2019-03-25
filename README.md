@@ -14,7 +14,7 @@ Using Flutter as the base framework and the [Flame](https://github.com/luanpotte
 
 0. [Graphics and animation](https://jap.alekhin.io/game-graphics-and-animation-tutorial-flame-flutter-part-2)
 
-0. *Screens/views and dialog boxes (still writing)*
+0. [Views and dialog boxes](https://jap.alekhin.io/views-dialog-boxes-tutorial-flame-flutter-part-3)
 
 0. *Scoring, storage, and sound (still writing)*
 
