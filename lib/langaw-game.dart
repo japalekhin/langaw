@@ -39,6 +39,8 @@ class LangawGame extends Game {
   HelpView helpView;
   CreditsView creditsView;
 
+  int score;
+
   LangawGame() {
     initialize();
   }
@@ -46,6 +48,7 @@ class LangawGame extends Game {
   void initialize() async {
     rnd = Random();
     flies = List<Fly>();
+    score = 0;
     resize(await Flame.util.initialDimensions());
 
     background = Backyard(this);
