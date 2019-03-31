@@ -12,6 +12,7 @@ import 'package:langaw/components/help-button.dart';
 import 'package:langaw/components/house-fly.dart';
 import 'package:langaw/components/hungry-fly.dart';
 import 'package:langaw/components/macho-fly.dart';
+import 'package:langaw/components/score-display.dart';
 import 'package:langaw/components/start-button.dart';
 import 'package:langaw/controllers/spawner.dart';
 import 'package:langaw/view.dart';
@@ -30,6 +31,7 @@ class LangawGame extends Game {
   StartButton startButton;
   HelpButton helpButton;
   CreditsButton creditsButton;
+  ScoreDisplay scoreDisplay;
 
   FlySpawner spawner;
 
@@ -55,6 +57,7 @@ class LangawGame extends Game {
     startButton = StartButton(this);
     helpButton = HelpButton(this);
     creditsButton = CreditsButton(this);
+    scoreDisplay = ScoreDisplay(this);
 
     spawner = FlySpawner(this);
     homeView = HomeView(this);
@@ -89,6 +92,8 @@ class LangawGame extends Game {
   void render(Canvas canvas) {
     background.render(canvas);
 
+    if (activeView == View.playing) scoreDisplay.render(canvas);
+
     flies.forEach((Fly fly) => fly.render(canvas));
 
     if (activeView == View.home) homeView.render(canvas);
@@ -106,6 +111,7 @@ class LangawGame extends Game {
     spawner.update(t);
     flies.forEach((Fly fly) => fly.update(t));
     flies.removeWhere((Fly fly) => fly.isOffScreen);
+    if (activeView == View.playing) scoreDisplay.update(t);
   }
 
   void resize(Size size) {
