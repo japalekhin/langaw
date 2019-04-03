@@ -29,6 +29,7 @@ void main() async {
     'flies/macho-fly-1.png',
     'flies/macho-fly-2.png',
     'flies/macho-fly-dead.png',
+    'ui/callout.png',
     'ui/dialog-credits.png',
     'ui/dialog-help.png',
     'ui/icon-credits.png',
