@@ -20,8 +20,10 @@ import 'package:langaw/views/credits-view.dart';
 import 'package:langaw/views/help-view.dart';
 import 'package:langaw/views/home-view.dart';
 import 'package:langaw/views/lost-view.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LangawGame extends Game {
+  final SharedPreferences storage;
   Size screenSize;
   double tileSize;
   Random rnd;
@@ -43,7 +45,7 @@ class LangawGame extends Game {
 
   int score;
 
-  LangawGame() {
+  LangawGame(this.storage) {
     initialize();
   }
 
