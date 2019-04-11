@@ -4,11 +4,14 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:langaw/langaw-game.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
   Util flameUtil = Util();
   await flameUtil.fullScreen();
   await flameUtil.setOrientation(DeviceOrientation.portraitUp);
+
+  SharedPreferences storage = await SharedPreferences.getInstance();
 
   Flame.images.loadAll(<String>[
     'bg/backyard.png',
@@ -37,7 +40,7 @@ void main() async {
     'ui/start-button.png',
   ]);
 
-  LangawGame game = LangawGame();
+  LangawGame game = LangawGame(storage);
   runApp(game.widget);
 
   TapGestureRecognizer tapper = TapGestureRecognizer();
