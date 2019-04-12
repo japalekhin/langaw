@@ -35,7 +35,7 @@ class HighscoreDisplay {
     int highscore = game.storage.getInt('highscore') ?? 0;
 
     painter.text = TextSpan(
-      text: 'Highscore: ' + highscore.toString(),
+      text: 'High-score: ' + highscore.toString(),
       style: textStyle,
     );
 
