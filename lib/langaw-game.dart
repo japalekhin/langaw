@@ -9,6 +9,7 @@ import 'package:langaw/components/credits-button.dart';
 import 'package:langaw/components/drooler-fly.dart';
 import 'package:langaw/components/fly.dart';
 import 'package:langaw/components/help-button.dart';
+import 'package:langaw/components/highscore-display.dart';
 import 'package:langaw/components/house-fly.dart';
 import 'package:langaw/components/hungry-fly.dart';
 import 'package:langaw/components/macho-fly.dart';
@@ -34,6 +35,7 @@ class LangawGame extends Game {
   HelpButton helpButton;
   CreditsButton creditsButton;
   ScoreDisplay scoreDisplay;
+  HighscoreDisplay highscoreDisplay;
 
   FlySpawner spawner;
 
@@ -60,6 +62,7 @@ class LangawGame extends Game {
     helpButton = HelpButton(this);
     creditsButton = CreditsButton(this);
     scoreDisplay = ScoreDisplay(this);
+    highscoreDisplay = HighscoreDisplay(this);
 
     spawner = FlySpawner(this);
     homeView = HomeView(this);
@@ -94,7 +97,8 @@ class LangawGame extends Game {
   void render(Canvas canvas) {
     background.render(canvas);
 
-    if (activeView == View.playing) scoreDisplay.render(canvas);
+    highscoreDisplay.render(canvas);
+    if (activeView == View.playing || activeView == View.lost) scoreDisplay.render(canvas);
 
     flies.forEach((Fly fly) => fly.render(canvas));
 
