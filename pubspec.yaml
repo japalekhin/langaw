@@ -20,6 +20,22 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
+    - assets/audio/sfx/haha1.ogg
+    - assets/audio/sfx/haha2.ogg
+    - assets/audio/sfx/haha3.ogg
+    - assets/audio/sfx/haha4.ogg
+    - assets/audio/sfx/haha5.ogg
+    - assets/audio/sfx/ouch1.ogg
+    - assets/audio/sfx/ouch2.ogg
+    - assets/audio/sfx/ouch3.ogg
+    - assets/audio/sfx/ouch4.ogg
+    - assets/audio/sfx/ouch5.ogg
+    - assets/audio/sfx/ouch6.ogg
+    - assets/audio/sfx/ouch7.ogg
+    - assets/audio/sfx/ouch8.ogg
+    - assets/audio/sfx/ouch9.ogg
+    - assets/audio/sfx/ouch10.ogg
+    - assets/audio/sfx/ouch11.ogg
     - assets/images/bg/backyard.png
     - assets/images/bg/lose-splash.png
     - assets/images/branding/title.png
