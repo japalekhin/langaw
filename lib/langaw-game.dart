@@ -171,6 +171,7 @@ class LangawGame extends Game {
         }
       });
       if (activeView == View.playing && !didHitAFly) {
+        Flame.audio.play('sfx/haha' + (rnd.nextInt(5) + 1).toString() + '.ogg');
         activeView = View.lost;
       }
     }
