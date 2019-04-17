@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:flame/flame.dart';
 import 'package:flame/sprite.dart';
 import 'package:langaw/components/callout.dart';
 import 'package:langaw/langaw-game.dart';
@@ -72,6 +73,8 @@ class Fly {
 
   void onTapDown() {
     if (!isDead) {
+      Flame.audio.play('sfx/ouch' + (game.rnd.nextInt(11) + 1).toString() + '.ogg');
+
       isDead = true;
 
       if (game.activeView == View.playing) {
