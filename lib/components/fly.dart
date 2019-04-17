@@ -76,6 +76,11 @@ class Fly {
 
       if (game.activeView == View.playing) {
         game.score += 1;
+
+        if (game.score > (game.storage.getInt('highscore') ?? 0)) {
+          game.storage.setInt('highscore', game.score);
+          game.highscoreDisplay.updateHighscore();
+        }
       }
     }
   }
