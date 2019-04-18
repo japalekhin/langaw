@@ -20,6 +20,8 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
+    - assets/audio/bgm/home.mp3
+    - assets/audio/bgm/playing.mp3
     - assets/audio/sfx/haha1.ogg
     - assets/audio/sfx/haha2.ogg
     - assets/audio/sfx/haha3.ogg
