@@ -42,6 +42,8 @@ void main() async {
 
   Flame.audio.disableLog();
   Flame.audio.loadAll(<String>[
+    'bgm/home.mp3',
+    'bgm/playing.mp3',
     'sfx/haha1.ogg',
     'sfx/haha2.ogg',
     'sfx/haha3.ogg',
