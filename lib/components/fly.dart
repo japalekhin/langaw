@@ -73,7 +73,9 @@ class Fly {
 
   void onTapDown() {
     if (!isDead) {
-      Flame.audio.play('sfx/ouch' + (game.rnd.nextInt(11) + 1).toString() + '.ogg');
+      if (game.soundButton.isEnabled) {
+        Flame.audio.play('sfx/ouch' + (game.rnd.nextInt(11) + 1).toString() + '.ogg');
+      }
 
       isDead = true;
 
