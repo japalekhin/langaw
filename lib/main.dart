@@ -37,6 +37,10 @@ void main() async {
     'ui/dialog-help.png',
     'ui/icon-credits.png',
     'ui/icon-help.png',
+    'ui/icon-music-disabled.png',
+    'ui/icon-music-enabled.png',
+    'ui/icon-sound-disabled.png',
+    'ui/icon-sound-enabled.png',
     'ui/start-button.png',
   ]);
 
