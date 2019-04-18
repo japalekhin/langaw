@@ -27,3 +27,5 @@ Please support my work by becoming a patron on Patreon.
 * [Demo video for Part 1](http://www.youtube.com/watch?v=_BlANH2wUj0 "Langaw Game Demo 1 - Flame/Flutter Game Making Tutorial")
 * [Demo video 1 for Part 2](http://www.youtube.com/watch?v=DTwmKUUOQCE "Langaw Game - Flame/Flutter Game Making Tutorial (Part 2, Demo 1)")
 * [Demo video 2 for Part 2](http://www.youtube.com/watch?v=-yJCJBQE3cg "Langaw Game - Flame/Flutter Game Making Tutorial (Part 2, Demo 2)")
+* [Demo video for Part 3](https://www.youtube.com/watch?v=-vk935e_ewY "Langaw Game - Langaw Game - Flame/Flutter Game Making Tutorial (Part 3 Demo)")
+* [Demo video for Part 4](https://www.youtube.com/watch?v=eAaikwyDSoU&t=62s "Langaw Game - Flame/Flutter Game Making Tutorial (Part 4 Demo)")
