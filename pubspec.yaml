@@ -61,4 +61,8 @@ flutter:
     - assets/images/ui/dialog-help.png
     - assets/images/ui/icon-credits.png
     - assets/images/ui/icon-help.png
+    - assets/images/ui/icon-music-disabled.png
+    - assets/images/ui/icon-music-enabled.png
+    - assets/images/ui/icon-sound-disabled.png
+    - assets/images/ui/icon-sound-enabled.png
     - assets/images/ui/start-button.png
