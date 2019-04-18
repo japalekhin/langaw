@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'dart:ui';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/gestures.dart';
@@ -47,6 +48,9 @@ class LangawGame extends Game {
 
   int score;
 
+  AudioPlayer homeBGM;
+  AudioPlayer playingBGM;
+
   LangawGame(this.storage) {
     initialize();
   }
@@ -69,6 +73,13 @@ class LangawGame extends Game {
     lostView = LostView(this);
     helpView = HelpView(this);
     creditsView = CreditsView(this);
+
+    homeBGM = await Flame.audio.loop('bgm/home.mp3', volume: .25);
+    homeBGM.pause();
+    playingBGM = await Flame.audio.loop('bgm/playing.mp3', volume: .25);
+    playingBGM.pause();
+
+    playHomeBGM();
   }
 
   void spawnFly() {
@@ -92,6 +103,18 @@ class LangawGame extends Game {
         flies.add(HungryFly(this, x, y));
         break;
     }
+  }
+
+  void playHomeBGM() {
+    playingBGM.pause();
+    playingBGM.seek(Duration.zero);
+    homeBGM.resume();
+  }
+
+  void playPlayingBGM() {
+    homeBGM.pause();
+    homeBGM.seek(Duration.zero);
+    playingBGM.resume();
   }
 
   void render(Canvas canvas) {
@@ -172,6 +195,7 @@ class LangawGame extends Game {
       });
       if (activeView == View.playing && !didHitAFly) {
         Flame.audio.play('sfx/haha' + (rnd.nextInt(5) + 1).toString() + '.ogg');
+        playHomeBGM();
         activeView = View.lost;
       }
     }
