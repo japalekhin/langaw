@@ -14,7 +14,9 @@ import 'package:langaw/components/highscore-display.dart';
 import 'package:langaw/components/house-fly.dart';
 import 'package:langaw/components/hungry-fly.dart';
 import 'package:langaw/components/macho-fly.dart';
+import 'package:langaw/components/music-button.dart';
 import 'package:langaw/components/score-display.dart';
+import 'package:langaw/components/sound-button.dart';
 import 'package:langaw/components/start-button.dart';
 import 'package:langaw/controllers/spawner.dart';
 import 'package:langaw/view.dart';
@@ -35,6 +37,8 @@ class LangawGame extends Game {
   StartButton startButton;
   HelpButton helpButton;
   CreditsButton creditsButton;
+  MusicButton musicButton;
+  SoundButton soundButton;
   ScoreDisplay scoreDisplay;
   HighscoreDisplay highscoreDisplay;
 
@@ -65,6 +69,8 @@ class LangawGame extends Game {
     startButton = StartButton(this);
     helpButton = HelpButton(this);
     creditsButton = CreditsButton(this);
+    musicButton = MusicButton(this);
+    soundButton = SoundButton(this);
     scoreDisplay = ScoreDisplay(this);
     highscoreDisplay = HighscoreDisplay(this);
 
@@ -132,6 +138,8 @@ class LangawGame extends Game {
       helpButton.render(canvas);
       creditsButton.render(canvas);
     }
+    musicButton.render(canvas);
+    soundButton.render(canvas);
     if (activeView == View.help) helpView.render(canvas);
     if (activeView == View.credits) creditsView.render(canvas);
   }
@@ -157,6 +165,18 @@ class LangawGame extends Game {
         activeView = View.home;
         isHandled = true;
       }
+    }
+
+    // music button
+    if (!isHandled && musicButton.rect.contains(d.globalPosition)) {
+      musicButton.onTapDown();
+      isHandled = true;
+    }
+
+    // sound button
+    if (!isHandled && soundButton.rect.contains(d.globalPosition)) {
+      soundButton.onTapDown();
+      isHandled = true;
     }
 
     // help button
