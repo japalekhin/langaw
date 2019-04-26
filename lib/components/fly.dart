@@ -32,9 +32,9 @@ class Fly {
 
   void render(Canvas c) {
     if (isDead) {
-      deadSprite.renderRect(c, flyRect.inflate(2));
+      deadSprite.renderRect(c, flyRect.inflate(flyRect.width / 2));
     } else {
-      flyingSprite[flyingSpriteIndex.toInt()].renderRect(c, flyRect.inflate(2));
+      flyingSprite[flyingSpriteIndex.toInt()].renderRect(c, flyRect.inflate(flyRect.width / 2));
       if (game.activeView == View.playing) {
         callout.render(c);
       }
