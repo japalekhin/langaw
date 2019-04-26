@@ -90,7 +90,7 @@ class LangawGame extends Game {
 
   void spawnFly() {
     double x = rnd.nextDouble() * (screenSize.width - (tileSize * 2.025));
-    double y = rnd.nextDouble() * (screenSize.height - (tileSize * 2.025));
+    double y = (rnd.nextDouble() * (screenSize.height - (tileSize * 2.025))) + (tileSize * 1.5);
 
     switch (rnd.nextInt(5)) {
       case 0:
