@@ -1,4 +1,4 @@
-package com.example.langaw;
+package games.alekhin.langaw;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;
