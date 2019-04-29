@@ -80,9 +80,9 @@ class LangawGame extends Game {
     helpView = HelpView(this);
     creditsView = CreditsView(this);
 
-    homeBGM = await Flame.audio.loop('bgm/home.mp3', volume: .25);
+    homeBGM = await Flame.audio.loopLongAudio('bgm/home.mp3', volume: .25);
     homeBGM.pause();
-    playingBGM = await Flame.audio.loop('bgm/playing.mp3', volume: .25);
+    playingBGM = await Flame.audio.loopLongAudio('bgm/playing.mp3', volume: .25);
     playingBGM.pause();
 
     playHomeBGM();
