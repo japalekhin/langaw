@@ -63,7 +63,7 @@ class LangawGame extends Game {
     rnd = Random();
     flies = List<Fly>();
     score = 0;
-    resize(await Flame.util.initialDimensions());
+    resize(Size.zero);
 
     background = Backyard(this);
     startButton = StartButton(this);
@@ -180,7 +180,6 @@ class LangawGame extends Game {
 
   void lifecycleStateChange(AppLifecycleState state) async {
     if (state == AppLifecycleState.resumed) {
-      resize(await Flame.util.initialDimensions());
       initializeBGM();
     }
   }
