@@ -20,7 +20,7 @@ Please support my work by becoming a patron on Patreon.
 0. [Graphics and animation](https://jap.alekhin.io/game-graphics-and-animation-tutorial-flame-flutter-part-2)
 0. [Views and dialog boxes](https://jap.alekhin.io/views-dialog-boxes-tutorial-flame-flutter-part-3)
 0. [Scoring, storage, and sound](https://jap.alekhin.io/scoring-storage-sound-tutorial-flame-flutter-part-4)
-0. *Finishing up and packaging (still writing)*
+0. [Finishing up and packaging](https://jap.alekhin.io/game-finishing-packaging-tutorial-flame-flutter-part-5)
 
 ## Demo Videos
 
