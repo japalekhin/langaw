@@ -185,12 +185,10 @@ class LangawGame extends Game {
   }
 
   Future<bool> onWillPopScope() async {
-    homeBGM.pause();
-    homeBGM.release();
+    await homeBGM.release();
+    await playingBGM.release();
     homeBGM = null;
-    playingBGM.pause();
-    playingBGM.release();
-    homeBGM = null;
+    playingBGM = null;
     return true;
   }
 
