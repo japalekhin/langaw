@@ -5,25 +5,12 @@ import 'package:langaw/langaw-game.dart';
 class ScoreDisplay {
   final LangawGame game;
   TextPainter painter;
-  TextStyle textStyle;
   Offset position;
 
   ScoreDisplay(this.game) {
     painter = TextPainter(
       textAlign: TextAlign.center,
       textDirection: TextDirection.ltr,
-    );
-
-    textStyle = TextStyle(
-      color: Color(0xffffffff),
-      fontSize: 90,
-      shadows: <Shadow>[
-        Shadow(
-          blurRadius: 7,
-          color: Color(0xff000000),
-          offset: Offset(3, 3),
-        ),
-      ],
     );
 
     position = Offset.zero;
@@ -35,16 +22,25 @@ class ScoreDisplay {
 
   void update(double t) {
     if ((painter.text?.text ?? '') != game.score.toString()) {
-      painter.text = TextSpan(
-        text: game.score.toString(),
-        style: textStyle,
-      );
       resize();
     }
   }
 
   void resize() {
-    if (painter.text == null) return;
+    painter.text = TextSpan(
+      text: game.score.toString(),
+      style: TextStyle(
+        color: Color(0xffffffff),
+        fontSize: game.tileSize * 2,
+        shadows: <Shadow>[
+          Shadow(
+            blurRadius: game.tileSize * .25,
+            color: Color(0xff000000),
+            offset: Offset(3, 3),
+          ),
+        ],
+      ),
+    );
     painter.layout();
     position = Offset(
       (game.screenSize.width / 2) - (painter.width / 2),
