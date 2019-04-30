@@ -67,7 +67,12 @@ void main() async {
   ]);
 
   LangawGame game = LangawGame(storage);
-  runApp(game.widget);
+  runApp(
+    WillPopScope(
+      child: game.widget,
+      onWillPop: game.onWillPopScope,
+    ),
+  );
 
   TapGestureRecognizer tapper = TapGestureRecognizer();
   tapper.onTapDown = game.onTapDown;
