@@ -39,13 +39,16 @@ class ScoreDisplay {
         text: game.score.toString(),
         style: textStyle,
       );
-
-      painter.layout();
-
-      position = Offset(
-        (game.screenSize.width / 2) - (painter.width / 2),
-        (game.screenSize.height * .25) - (painter.height / 2),
-      );
+      resize();
     }
+  }
+
+  void resize() {
+    if (painter.text == null) return;
+    painter.layout();
+    position = Offset(
+      (game.screenSize.width / 2) - (painter.width / 2),
+      (game.screenSize.height * .25) - (painter.height / 2),
+    );
   }
 }

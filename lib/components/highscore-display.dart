@@ -38,9 +38,12 @@ class HighscoreDisplay {
       text: 'High-score: ' + highscore.toString(),
       style: textStyle,
     );
+    resize();
+  }
 
+  void resize() {
+    if (painter.text == null) return;
     painter.layout();
-
     position = Offset(
       game.screenSize.width - (game.tileSize * .25) - painter.width,
       game.tileSize * .25,

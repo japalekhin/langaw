@@ -71,6 +71,8 @@ class Fly {
     }
   }
 
+  void resize() {}
+
   void onTapDown() {
     if (!isDead) {
       if (game.soundButton.isEnabled) {

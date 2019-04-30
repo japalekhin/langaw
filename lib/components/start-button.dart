@@ -9,12 +9,7 @@ class StartButton {
   Sprite sprite;
 
   StartButton(this.game) {
-    rect = Rect.fromLTWH(
-      game.tileSize * 1.5,
-      (game.screenSize.height * .75) - (game.tileSize * 1.5),
-      game.tileSize * 6,
-      game.tileSize * 3,
-    );
+    resize();
     sprite = Sprite('ui/start-button.png');
   }
 
@@ -23,6 +18,15 @@ class StartButton {
   }
 
   void update(double t) {}
+
+  void resize() {
+    rect = Rect.fromLTWH(
+      game.tileSize * 1.5,
+      (game.screenSize.height * .75) - (game.tileSize * 1.5),
+      game.tileSize * 6,
+      game.tileSize * 3,
+    );
+  }
 
   void onTapDown() {
     game.score = 0;

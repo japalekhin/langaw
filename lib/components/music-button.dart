@@ -10,12 +10,7 @@ class MusicButton {
   bool isEnabled = true;
 
   MusicButton(this.game) {
-    rect = Rect.fromLTWH(
-      game.tileSize * .25,
-      game.tileSize * .25,
-      game.tileSize,
-      game.tileSize,
-    );
+    resize();
     enabledSprite = Sprite('ui/icon-music-enabled.png');
     disabledSprite = Sprite('ui/icon-music-disabled.png');
   }
@@ -26,6 +21,15 @@ class MusicButton {
     } else {
       disabledSprite.renderRect(c, rect);
     }
+  }
+
+  void resize() {
+    rect = Rect.fromLTWH(
+      game.tileSize * .25,
+      game.tileSize * .25,
+      game.tileSize,
+      game.tileSize,
+    );
   }
 
   void onTapDown() {

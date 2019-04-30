@@ -59,7 +59,7 @@ class LangawGame extends Game {
     initialize();
   }
 
-  void initialize() async {
+  Future<void> initialize() async {
     rnd = Random();
     flies = List<Fly>();
     score = 0;
@@ -80,9 +80,13 @@ class LangawGame extends Game {
     helpView = HelpView(this);
     creditsView = CreditsView(this);
 
-    homeBGM = await Flame.audio.loopLongAudio('bgm/home.mp3', volume: .25);
+    initializeBGM();
+  }
+
+  Future<void> initializeBGM() async {
+    homeBGM ??= await Flame.audio.loopLongAudio('bgm/home.mp3', volume: .25);
     homeBGM.pause();
-    playingBGM = await Flame.audio.loopLongAudio('bgm/playing.mp3', volume: .25);
+    playingBGM ??= await Flame.audio.loopLongAudio('bgm/playing.mp3', volume: .25);
     playingBGM.pause();
 
     playHomeBGM();
@@ -154,6 +158,41 @@ class LangawGame extends Game {
   void resize(Size size) {
     screenSize = size;
     tileSize = screenSize.width / 9;
+
+    background?.resize();
+
+    highscoreDisplay?.resize();
+    scoreDisplay?.resize();
+    flies.forEach((Fly fly) => fly?.resize());
+
+    homeView?.resize();
+    lostView?.resize();
+    helpView?.resize();
+    creditsView?.resize();
+
+    startButton?.resize();
+    helpButton?.resize();
+    creditsButton?.resize();
+    musicButton?.resize();
+    soundButton?.resize();
+
+  }
+
+  void lifecycleStateChange(AppLifecycleState state) async {
+    if (state == AppLifecycleState.resumed) {
+      resize(await Flame.util.initialDimensions());
+      initializeBGM();
+    }
+  }
+
+  Future<bool> onWillPopScope() async {
+    homeBGM.pause();
+    homeBGM.release();
+    homeBGM = null;
+    playingBGM.pause();
+    playingBGM.release();
+    homeBGM = null;
+    return true;
   }
 
   void onTapDown(TapDownDetails d) {

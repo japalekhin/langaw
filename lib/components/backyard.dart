@@ -9,16 +9,20 @@ class Backyard {
 
   Backyard(this.game) {
     bgSprite = Sprite('bg/backyard.png');
+    resize();
+  }
+
+  void render(Canvas c) {
+    bgSprite.renderRect(c, bgRect);
+  }
+
+  void resize() {
     bgRect = Rect.fromLTWH(
       0,
       game.screenSize.height - (game.tileSize * 23),
       game.tileSize * 9,
       game.tileSize * 23,
     );
-  }
-
-  void render(Canvas c) {
-    bgSprite.renderRect(c, bgRect);
   }
 
   void update(double t) {}

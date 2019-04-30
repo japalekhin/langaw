@@ -8,16 +8,20 @@ class HelpView {
   Sprite sprite;
 
   HelpView(this.game) {
+    resize();
+    sprite = Sprite('ui/dialog-help.png');
+  }
+
+  void render(Canvas c) {
+    sprite.renderRect(c, rect);
+  }
+
+  void resize() {
     rect = Rect.fromLTWH(
       game.tileSize * .5,
       (game.screenSize.height / 2) - (game.tileSize * 6),
       game.tileSize * 8,
       game.tileSize * 12,
     );
-    sprite = Sprite('ui/dialog-help.png');
-  }
-
-  void render(Canvas c) {
-    sprite.renderRect(c, rect);
   }
 }
