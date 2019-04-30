@@ -12,7 +12,6 @@ class Callout {
   double value;
 
   TextPainter tp;
-  TextStyle textStyle;
   Offset textOffset;
 
   Callout(this.fly) {
@@ -21,10 +20,6 @@ class Callout {
     tp = TextPainter(
       textAlign: TextAlign.center,
       textDirection: TextDirection.ltr,
-    );
-    textStyle = TextStyle(
-      color: Color(0xff000000),
-      fontSize: 15,
     );
   }
 
@@ -46,15 +41,18 @@ class Callout {
     }
 
     rect = Rect.fromLTWH(
-      fly.flyRect.left - (fly.game.tileSize * .25),
-      fly.flyRect.top - (fly.game.tileSize * .5),
+      fly.flyRect.left - (fly.game.tileSize * .75),
+      fly.flyRect.top - (fly.game.tileSize * .625),
       fly.game.tileSize * .75,
       fly.game.tileSize * .75,
     );
 
     tp.text = TextSpan(
       text: (value * 10).toInt().toString(),
-      style: textStyle,
+      style: TextStyle(
+        color: Color(0xffffffff),
+        fontSize: fly.game.tileSize * .375,
+      ),
     );
     tp.layout();
     textOffset = Offset(
