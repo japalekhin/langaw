@@ -3,6 +3,7 @@ import 'package:flame/util.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:langaw/bgm.dart';
 import 'package:langaw/langaw-game.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -13,7 +14,7 @@ void main() async {
 
   SharedPreferences storage = await SharedPreferences.getInstance();
 
-  Flame.images.loadAll(<String>[
+  await Flame.images.loadAll(<String>[
     'bg/backyard.png',
     'bg/lose-splash.png',
     'branding/title.png',
@@ -45,9 +46,9 @@ void main() async {
   ]);
 
   Flame.audio.disableLog();
-  Flame.audio.loadAll(<String>[
-    'bgm/home.mp3',
-    'bgm/playing.mp3',
+  await BGM.preload();
+
+  await Flame.audio.loadAll(<String>[
     'sfx/haha1.ogg',
     'sfx/haha2.ogg',
     'sfx/haha3.ogg',
@@ -67,14 +68,11 @@ void main() async {
   ]);
 
   LangawGame game = LangawGame(storage);
-  runApp(
-    WillPopScope(
-      child: game.widget,
-      onWillPop: game.onWillPopScope,
-    ),
-  );
+  runApp(game.widget);
 
   TapGestureRecognizer tapper = TapGestureRecognizer();
   tapper.onTapDown = game.onTapDown;
   flameUtil.addGestureRecognizer(tapper);
+
+  WidgetsBinding.instance.addObserver(BGMHandler());
 }

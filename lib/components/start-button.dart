@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flame/sprite.dart';
+import 'package:langaw/bgm.dart';
 import 'package:langaw/langaw-game.dart';
 import 'package:langaw/view.dart';
 
@@ -32,6 +33,6 @@ class StartButton {
     game.score = 0;
     game.activeView = View.playing;
     game.spawner.start();
-    game.playPlayingBGM();
+    BGM.play(BGMType.playing);
   }
 }

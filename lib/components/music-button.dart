@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flame/sprite.dart';
+import 'package:langaw/bgm.dart';
 import 'package:langaw/langaw-game.dart';
 
 class MusicButton {
@@ -35,12 +36,10 @@ class MusicButton {
   void onTapDown() {
     if (isEnabled) {
       isEnabled = false;
-      game.homeBGM.setVolume(0);
-      game.playingBGM.setVolume(0);
+      BGM.pause();
     } else {
       isEnabled = true;
-      game.homeBGM.setVolume(.25);
-      game.playingBGM.setVolume(.25);
+      BGM.resume();
     }
   }
 }

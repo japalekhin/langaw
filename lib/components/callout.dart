@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flame/flame.dart';
 import 'package:flame/sprite.dart';
 import 'package:flutter/painting.dart';
+import 'package:langaw/bgm.dart';
 import 'package:langaw/components/fly.dart';
 import 'package:langaw/view.dart';
 
@@ -35,7 +36,7 @@ class Callout {
         if (fly.game.soundButton.isEnabled) {
           Flame.audio.play('sfx/haha' + (fly.game.rnd.nextInt(5) + 1).toString() + '.ogg');
         }
-        fly.game.playHomeBGM();
+        BGM.play(BGMType.home);
         fly.game.activeView = View.lost;
       }
     }

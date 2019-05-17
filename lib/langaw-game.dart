@@ -1,9 +1,9 @@
 import 'dart:math';
 import 'dart:ui';
-import 'package:audioplayers/audioplayers.dart';
 import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/gestures.dart';
+import 'package:langaw/bgm.dart';
 import 'package:langaw/components/agile-fly.dart';
 import 'package:langaw/components/backyard.dart';
 import 'package:langaw/components/credits-button.dart';
@@ -52,9 +52,6 @@ class LangawGame extends Game {
 
   int score;
 
-  AudioPlayer homeBGM;
-  AudioPlayer playingBGM;
-
   LangawGame(this.storage) {
     initialize();
   }
@@ -80,16 +77,7 @@ class LangawGame extends Game {
     helpView = HelpView(this);
     creditsView = CreditsView(this);
 
-    initializeBGM();
-  }
-
-  Future<void> initializeBGM() async {
-    homeBGM ??= await Flame.audio.loopLongAudio('bgm/home.mp3', volume: .25);
-    homeBGM.pause();
-    playingBGM ??= await Flame.audio.loopLongAudio('bgm/playing.mp3', volume: .25);
-    playingBGM.pause();
-
-    playHomeBGM();
+    BGM.play(BGMType.home);
   }
 
   void spawnFly() {
@@ -113,18 +101,6 @@ class LangawGame extends Game {
         flies.add(HungryFly(this, x, y));
         break;
     }
-  }
-
-  void playHomeBGM() {
-    playingBGM.pause();
-    playingBGM.seek(Duration.zero);
-    homeBGM.resume();
-  }
-
-  void playPlayingBGM() {
-    homeBGM.pause();
-    homeBGM.seek(Duration.zero);
-    playingBGM.resume();
   }
 
   void render(Canvas canvas) {
@@ -176,20 +152,6 @@ class LangawGame extends Game {
     musicButton?.resize();
     soundButton?.resize();
 
-  }
-
-  void lifecycleStateChange(AppLifecycleState state) async {
-    if (state == AppLifecycleState.resumed) {
-      initializeBGM();
-    }
-  }
-
-  Future<bool> onWillPopScope() async {
-    await homeBGM.release();
-    await playingBGM.release();
-    homeBGM = null;
-    playingBGM = null;
-    return true;
   }
 
   void onTapDown(TapDownDetails d) {
@@ -253,7 +215,7 @@ class LangawGame extends Game {
         if (soundButton.isEnabled) {
           Flame.audio.play('sfx/haha' + (rnd.nextInt(5) + 1).toString() + '.ogg');
         }
-        playHomeBGM();
+        BGM.play(BGMType.home);
         activeView = View.lost;
       }
     }
