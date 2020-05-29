@@ -7,7 +7,12 @@ import 'package:langaw/bgm.dart';
 import 'package:langaw/langaw-game.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-void main() async {
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  runGame();
+}
+
+void runGame() async {
   Util flameUtil = Util();
   await flameUtil.fullScreen();
   await flameUtil.setOrientation(DeviceOrientation.portraitUp);
