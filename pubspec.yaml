@@ -58,6 +58,7 @@ flutter:
     - assets/images/flies/macho-fly-dead.png
     - assets/images/ui/callout.png
     - assets/images/ui/dialog-credits.png
+    - assets/images/ui/leaderboard.png
     - assets/images/ui/dialog-help.png
     - assets/images/ui/icon-credits.png
     - assets/images/ui/icon-help.png

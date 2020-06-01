@@ -41,6 +41,7 @@ void runGame() async {
     'ui/callout.png',
     'ui/dialog-credits.png',
     'ui/dialog-help.png',
+    'ui/leaderboard.png',
     'ui/icon-credits.png',
     'ui/icon-help.png',
     'ui/icon-music-disabled.png',
