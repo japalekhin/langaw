@@ -3,14 +3,14 @@ import 'dart:ui';
 import 'package:flame/sprite.dart';
 import 'package:langaw/langaw-game.dart';
 
-class HelpView {
+class LeaderBoardView {
   final LangawGame game;
   Rect rect;
   Sprite sprite;
 
-  HelpView(this.game) {
+  LeaderBoardView(this.game) {
     resize();
-    sprite = Sprite('ui/dialog-help.png');
+    sprite = Sprite('ui/leaderboard.png');
   }
 
   void render(Canvas c) {

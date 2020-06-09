@@ -4,4 +4,5 @@ enum View {
   lost,
   help,
   credits,
+  leaderboard,
 }

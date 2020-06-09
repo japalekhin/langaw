@@ -11,7 +11,7 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^0.1.2
   shared_preferences: ^0.5.1+2
-  flame: ^0.11.1
+  flame: ^0.21.0
 
 dev_dependencies:
   flutter_test:
@@ -58,6 +58,7 @@ flutter:
     - assets/images/flies/macho-fly-dead.png
     - assets/images/ui/callout.png
     - assets/images/ui/dialog-credits.png
+    - assets/images/ui/leaderboard.png
     - assets/images/ui/dialog-help.png
     - assets/images/ui/icon-credits.png
     - assets/images/ui/icon-help.png

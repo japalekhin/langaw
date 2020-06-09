@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'dart:ui';
+
 import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/gestures.dart';
@@ -23,8 +24,11 @@ import 'package:langaw/view.dart';
 import 'package:langaw/views/credits-view.dart';
 import 'package:langaw/views/help-view.dart';
 import 'package:langaw/views/home-view.dart';
+import 'package:langaw/views/leaderboard-view.dart';
 import 'package:langaw/views/lost-view.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'components/LeaderBoardButton.dart';
 
 class LangawGame extends Game {
   final SharedPreferences storage;
@@ -36,6 +40,7 @@ class LangawGame extends Game {
   List<Fly> flies;
   StartButton startButton;
   HelpButton helpButton;
+  LeaderBoardButton leaderBoardButton;
   CreditsButton creditsButton;
   MusicButton musicButton;
   SoundButton soundButton;
@@ -48,6 +53,7 @@ class LangawGame extends Game {
   HomeView homeView;
   LostView lostView;
   HelpView helpView;
+  LeaderBoardView leaderBoardView;
   CreditsView creditsView;
 
   int score;
@@ -65,6 +71,7 @@ class LangawGame extends Game {
     background = Backyard(this);
     startButton = StartButton(this);
     helpButton = HelpButton(this);
+    leaderBoardButton = LeaderBoardButton(this);
     creditsButton = CreditsButton(this);
     musicButton = MusicButton(this);
     soundButton = SoundButton(this);
@@ -75,6 +82,7 @@ class LangawGame extends Game {
     homeView = HomeView(this);
     lostView = LostView(this);
     helpView = HelpView(this);
+    leaderBoardView = LeaderBoardView(this);
     creditsView = CreditsView(this);
 
     BGM.play(BGMType.home);
@@ -82,7 +90,8 @@ class LangawGame extends Game {
 
   void spawnFly() {
     double x = rnd.nextDouble() * (screenSize.width - (tileSize * 2.025));
-    double y = (rnd.nextDouble() * (screenSize.height - (tileSize * 2.025))) + (tileSize * 1.5);
+    double y = (rnd.nextDouble() * (screenSize.height - (tileSize * 2.025))) +
+        (tileSize * 1.5);
 
     switch (rnd.nextInt(5)) {
       case 0:
@@ -107,7 +116,8 @@ class LangawGame extends Game {
     background.render(canvas);
 
     highscoreDisplay.render(canvas);
-    if (activeView == View.playing || activeView == View.lost) scoreDisplay.render(canvas);
+    if (activeView == View.playing || activeView == View.lost)
+      scoreDisplay.render(canvas);
 
     flies.forEach((Fly fly) => fly.render(canvas));
 
@@ -116,11 +126,13 @@ class LangawGame extends Game {
     if (activeView == View.home || activeView == View.lost) {
       startButton.render(canvas);
       helpButton.render(canvas);
+      leaderBoardButton.render(canvas);
       creditsButton.render(canvas);
     }
     musicButton.render(canvas);
     soundButton.render(canvas);
     if (activeView == View.help) helpView.render(canvas);
+    if (activeView == View.leaderboard) leaderBoardView.render(canvas);
     if (activeView == View.credits) creditsView.render(canvas);
   }
 
@@ -144,14 +156,15 @@ class LangawGame extends Game {
     homeView?.resize();
     lostView?.resize();
     helpView?.resize();
+    leaderBoardView?.resize();
     creditsView?.resize();
 
     startButton?.resize();
     helpButton?.resize();
+    leaderBoardButton?.resize();
     creditsButton?.resize();
     musicButton?.resize();
     soundButton?.resize();
-
   }
 
   void onTapDown(TapDownDetails d) {
@@ -159,7 +172,9 @@ class LangawGame extends Game {
 
     // dialog boxes
     if (!isHandled) {
-      if (activeView == View.help || activeView == View.credits) {
+      if (activeView == View.help ||
+          activeView == View.credits ||
+          activeView == View.leaderboard) {
         activeView = View.home;
         isHandled = true;
       }
@@ -181,6 +196,13 @@ class LangawGame extends Game {
     if (!isHandled && helpButton.rect.contains(d.globalPosition)) {
       if (activeView == View.home || activeView == View.lost) {
         helpButton.onTapDown();
+        isHandled = true;
+      }
+    }
+    // leaderboard button
+    if (!isHandled && leaderBoardButton.rect.contains(d.globalPosition)) {
+      if (activeView == View.home || activeView == View.lost) {
+        leaderBoardButton.onTapDown();
         isHandled = true;
       }
     }
@@ -213,7 +235,8 @@ class LangawGame extends Game {
       });
       if (activeView == View.playing && !didHitAFly) {
         if (soundButton.isEnabled) {
-          Flame.audio.play('sfx/haha' + (rnd.nextInt(5) + 1).toString() + '.ogg');
+          Flame.audio
+              .play('sfx/haha' + (rnd.nextInt(5) + 1).toString() + '.ogg');
         }
         BGM.play(BGMType.home);
         activeView = View.lost;
